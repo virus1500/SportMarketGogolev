@@ -23,6 +23,7 @@ namespace SportMarketGogolev
         public MainWindow()
         {
             InitializeComponent();
+            InfoLV.ItemsSource = App.context.Order.ToList();
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
@@ -32,7 +33,17 @@ namespace SportMarketGogolev
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
-
+            var selectedItem = InfoLV.SelectedItems;
+            if (selectedItem != null)
+            {
+                App.context.Order.Remove(InfoLV.SelectedItems);
+                App.context.SaveChanges();
+                InfoLV.ItemsSource = App.context.Order.ToList();
+            }
+            else
+            {
+                MessageBox.Show("Выберите продукт");
+            }
         }
     }
 }

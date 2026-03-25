@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SportMarketGogolev.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace SportMarketGogolev
     /// </summary>
     public partial class App : Application
     {
+        public static GogolevSportCafeEntities2 context = new GogolevSportCafeEntities2();
     }
 }
