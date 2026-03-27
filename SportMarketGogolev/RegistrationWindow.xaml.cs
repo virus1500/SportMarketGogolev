@@ -43,7 +43,7 @@ namespace SportMarketGogolev
                         {
                             Email = EmailTB.Text,
                             Password = PassPB.Password,
-                            Role = 2,
+                            Roleid = 2,
                             Login = LoginTB.Text,
                         };
 

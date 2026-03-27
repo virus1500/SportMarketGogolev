@@ -4,22 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище GogolevSportCafeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="GogolevSportCafeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Order">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateOrder" Type="date" Nullable="false" />
+          <Property Name="DateOrder" Type="datetime" Nullable="false" />
           <Property Name="Userid" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PO">
           <Key>
-            <PropertyRef Name="ProductID" />
-            <PropertyRef Name="OrderID" />
+            <PropertyRef Name="Order_id" />
+            <PropertyRef Name="Product_id" />
           </Key>
-          <Property Name="ProductID" Type="int" Nullable="false" />
-          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="Order_id" Type="int" Nullable="false" />
+          <Property Name="Product_id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Product">
           <Key>
@@ -67,7 +67,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="PO">
-              <PropertyRef Name="OrderID" />
+              <PropertyRef Name="Order_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -79,7 +79,7 @@
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="PO">
-              <PropertyRef Name="ProductID" />
+              <PropertyRef Name="Product_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -95,7 +95,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище GogolevSportCafeModelContainer">
+        <EntityContainer Name="GogolevSportCafeModelStoreContainer">
           <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PO" EntityType="Self.PO" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
@@ -118,8 +118,7 @@
             <End Role="User" EntitySet="User" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="GogolevSportCafeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -128,7 +127,7 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateOrder" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Userid" Type="Int32" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
           <NavigationProperty Name="Product" Relationship="Self.PO" FromRole="Order" ToRole="Product" />
@@ -213,57 +212,56 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище GogolevSportCafeModelContainer" CdmEntityContainer="GogolevSportCafeEntities2">
-          <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="GogolevSportCafeModel.Order">
-              <MappingFragment StoreEntitySet="Order">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
-                <ScalarProperty Name="Userid" ColumnName="Userid" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Product">
-            <EntityTypeMapping TypeName="GogolevSportCafeModel.Product">
-              <MappingFragment StoreEntitySet="Product">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Cost" ColumnName="Cost" />
-                <ScalarProperty Name="Compountd" ColumnName="Compountd" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="GogolevSportCafeModel.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="GogolevSportCafeModel.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="Roleid" ColumnName="Roleid" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="PO" TypeName="GogolevSportCafeModel.PO" StoreEntitySet="PO">
-            <EndProperty Name="Order">
-              <ScalarProperty Name="id" ColumnName="OrderID" />
-            </EndProperty>
-            <EndProperty Name="Product">
-              <ScalarProperty Name="id" ColumnName="ProductID" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GogolevSportCafeModelStoreContainer" CdmEntityContainer="GogolevSportCafeEntities2">
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="IsTypeOf(GogolevSportCafeModel.Order)">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+          <ScalarProperty Name="Userid" ColumnName="Userid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="IsTypeOf(GogolevSportCafeModel.Product)">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Compountd" ColumnName="Compountd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="IsTypeOf(GogolevSportCafeModel.Role)">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="IsTypeOf(GogolevSportCafeModel.User)">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Roleid" ColumnName="Roleid" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="PO" TypeName="GogolevSportCafeModel.PO" StoreEntitySet="PO">
+      <EndProperty Name="Order">
+        <ScalarProperty Name="id" ColumnName="Order_id" />
+      </EndProperty>
+      <EndProperty Name="Product">
+        <ScalarProperty Name="id" ColumnName="Product_id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -277,7 +275,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
       </DesignerInfoPropertySet>
     </Options>

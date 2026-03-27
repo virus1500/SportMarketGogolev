@@ -4,14 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b64abd980a6b4727bcf3ff2ee92616f8" Name="Diagram1">
+      <Diagram DiagramId="b64abd980a6b4727bcf3ff2ee92616f8" Name="Diagram1" ZoomLevel="129">
         <EntityTypeShape EntityType="GogolevSportCafeModel.Order" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="GogolevSportCafeModel.Product" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GogolevSportCafeModel.Product" Width="1.5" PointX="9.125" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="GogolevSportCafeModel.Role" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="GogolevSportCafeModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="GogolevSportCafeModel.FK_Order_User" ManuallyRouted="false" />
         <AssociationConnector Association="GogolevSportCafeModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="GogolevSportCafeModel.PO" ManuallyRouted="false" />
+        <AssociationConnector Association="GogolevSportCafeModel.PO" ManuallyRouted="true" >
+          <ConnectorPoint PointX="6.75" PointY="2.2401432291666667" />
+          <ConnectorPoint PointX="9.125" PointY="2.2401432291666667" />
+        </AssociationConnector>
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

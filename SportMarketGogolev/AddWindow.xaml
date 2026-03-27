@@ -5,8 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportMarketGogolev"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="800">
+        Title="AddWindow" Height="205" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="7" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="7" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Название" Grid.Column="0" Grid.Row="1" FontSize="20"/>
+        <TextBox Name="NameTB" Grid.Column="2" Grid.Row="1"/>
         
+        <TextBlock Text="Цена" Grid.Column="0" Grid.Row="3" FontSize="20"/>
+        <TextBox Name="CostTB" Grid.Column="2" Grid.Row="3"/>
+        
+        <TextBlock Text="Содержание" Grid.Column="0" Grid.Row="5" FontSize="20"/>
+        <TextBox Name="CompoundTB" Grid.Column="2" Grid.Row="5"/>
+
+        <Button Grid.Column="2" Grid.Row="7" Click="AddBtn_Click" Content="Добаить" Height="25" Name="AddBtn"/>
+        <Button Grid.Column="2" Grid.Row="9" Click="CloseBtn_Click" Content="Закрыть" Height="25" Name="CloseBtn"/>
+
     </Grid>
 </Window>

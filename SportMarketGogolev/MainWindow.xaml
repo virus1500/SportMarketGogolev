@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportMarketGogolev"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" />
@@ -20,16 +20,16 @@
             <RowDefinition Height="10" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <TextBox x:Name="SearchTB"/>
+        <TextBox TextChanged="SearchTB_TextChanged" Height="30" x:Name="SearchTB"/>
         
         <Button x:Name="AddBtn" Click="AddBtn_Click" Grid.Column="2" Content="Добавить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
         <Button x:Name="Remove" Click="Remove_Click" Grid.Column="4" Content="Удалить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
-        <ListView x:Name="InfoLV" Grid.Row="2" Grid.ColumnSpan="3">
+        <ListView x:Name="InfoLV" Grid.Row="2" Grid.ColumnSpan="6">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
                     <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Cost}"/>
-                    <GridViewColumn Header="содержание" DisplayMemberBinding="{Binding Compound}"/>
+                    <GridViewColumn Header="содержание" DisplayMemberBinding="{Binding Compountd}"/>
                 </GridView>
             </ListView.View>
         </ListView>

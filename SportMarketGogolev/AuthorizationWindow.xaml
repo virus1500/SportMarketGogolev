@@ -5,31 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportMarketGogolev"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" Height="450" Width="800">
-    <Grid Margin="20">
+        Title="AuthorizationWindow" Height="180" Width="350" WindowStartupLocation="CenterScreen">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="10" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="5" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="5" />
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="5" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Почта" Grid.Row="0"/>
-        <TextBox x:Name="EmalTB" Grid.Row="0" Grid.Column="2"/>
+        <TextBlock Margin="5,0,0,0" FontSize="20" Text="Почта" Grid.Row="1"/>
+        <TextBox Width="250" x:Name="EmalTB" Grid.Row="1" Grid.Column="2"/>
 
-        <TextBlock Text="Пароль" Grid.Row="2"/>
-        <PasswordBox x:Name="PassPB" Grid.Row="2" Grid.Column="2"/>
+        <TextBlock Margin="5,0,0,0" FontSize="20" Text="Пароль" Grid.Row="3"/>
+        <PasswordBox Width="250" x:Name="PassPB" Grid.Row="3" Grid.Column="2"/>
 
-        <Button x:Name="EnterBtn" Click="EnterBtn_Click" Content="Войти" Grid.Row="4" Grid.ColumnSpan="3" Width="250" Height="50"/>
-        <Button x:Name="RegBtn" Click="RegBtn_Click" Content="Зарегистрироваться" Grid.Row="6" Grid.ColumnSpan="3" Width="250" Height="50"/>
+        <Button x:Name="EnterBtn" Click="EnterBtn_Click" Content="Войти" Grid.Row="5" Grid.ColumnSpan="3" Width="250" Height="30"/>
+        <Button x:Name="RegBtn" Click="RegBtn_Click" Content="Зарегистрироваться" Grid.Row="7" Grid.ColumnSpan="3" Width="250" Height="30"/>
     </Grid>
 </Window>
