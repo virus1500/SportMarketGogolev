@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportMarketGogolev"
         mc:Ignorable="d"
-        Title="AuthorizationWindow" Height="180" Width="350" WindowStartupLocation="CenterScreen">
+        Title="AuthorizationWindow" Height="200" Width="350" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />

@@ -7,29 +7,32 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="auto" />
-            <ColumnDefinition Width="1*" />
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="10" />
             <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
-        <TextBox TextChanged="SearchTB_TextChanged" Height="30" x:Name="SearchTB"/>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="5" />
+            </Grid.ColumnDefinitions>
+            <TextBox TextChanged="SearchTB_TextChanged" Height="30" x:Name="SearchTB"/>
+            <Button x:Name="AddBtn" Click="AddBtn_Click" Grid.Column="2" Content="Добавить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
+            <Button x:Name="Remove" Click="Remove_Click" Grid.Column="4" Content="Удалить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
+            <ComboBox Grid.Column="6" Width="200" Height="30" Name="SwithCmb" SelectionChanged="SwithCmb_SelectionChanged"/>
+        </Grid>
         
-        <Button x:Name="AddBtn" Click="AddBtn_Click" Grid.Column="2" Content="Добавить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
-        <Button x:Name="Remove" Click="Remove_Click" Grid.Column="4" Content="Удалить продукт" Width="auto" Height="30" HorizontalAlignment="Left"/>
         <ListView x:Name="InfoLV" Grid.Row="2" Grid.ColumnSpan="6">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Cost}"/>
-                    <GridViewColumn Header="содержание" DisplayMemberBinding="{Binding Compountd}"/>
                 </GridView>
             </ListView.View>
         </ListView>
